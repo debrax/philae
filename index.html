@@ -8,10 +8,14 @@
 </head>
 
 <body>
-    <h1 class="title">T'amo, mia vita</h1>
-    <div>Philae, mars 2026</div>
+    <div class="theme-toggle-wrap">
+        <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre">
+            <span class="toggle-icon" id="toggleIcon">☽</span>
+        </button>
+    </div>
 
-    <h2>Traductions</h2>
+    <h1 class="title">T'amo, mia vita</h1>
+    <div class="subtitle">Philae, mars 2026</div>
 
     <details>
         <summary>
@@ -46,6 +50,29 @@
 
     <details>
         <summary>
+            <span class="summary-title">Ridon'hor per le piaggie</span>
+            <span class="summary-meta">
+                Maddalena Casulana <span class="summary-year">(1570, 2<sup>ème</sup> livre)</span>
+            </span>
+        </summary>
+        <div>
+            <p class="lyrics">Ridon' hor per le piaggie herbett'e fiori,</p>
+            <p class="translation">Je vais errant parmi les prairies d'herbes et de fleurs,</p>
+            <p class="lyrics">Esser non puo che quel angelic' alma,</p>
+            <p class="translation">Il ne peut être que cette âme angélique</p>
+            <p class="lyrics">Non sent' il suon del' amorose note,</p>
+            <p class="translation">N'entende pas le son des notes amoureuses.</p>
+            <p class="lyrics">Se nostra ria fortun' è di piu forza,</p>
+            <p class="translation">Si notre funeste fortune est la plus forte,</p>
+            <p class="lyrics">Lagrimand' e cantando i nostri versi,</p>
+            <p class="translation">Pleurant et chantant nos vers,</p>
+            <p class="lyrics">E col bue zopp' andrem cacciando l'aura.</p>
+            <p class="translation">Avec le bœuf boiteux nous irons chassant le vent.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
             <span class="summary-title">Morir non puo</span>
             <span class="summary-meta">
                 Maddalena Casulana <span class="summary-year">(1566, 1<sup>er</sup> livre)</span>
@@ -69,28 +96,6 @@
         </div>
     </details>
 
-    <details>
-        <summary>
-            <span class="summary-title">Ridon'hor per le piaggie</span>
-            <span class="summary-meta">
-                Maddalena Casulana <span class="summary-year">(1570, 2<sup>ème</sup> livre)</span>
-            </span>
-        </summary>
-        <div>
-            <p class="lyrics">Ridon' hor per le piaggie herbett'e fiori,</p>
-            <p class="translation">Je vais errant parmi les prairies d'herbes et de fleurs,</p>
-            <p class="lyrics">Esser non puo che quel angelic' alma,</p>
-            <p class="translation">Il ne peut être que cette âme angélique</p>
-            <p class="lyrics">Non sent' il suon del' amorose note,</p>
-            <p class="translation">N'entende pas le son des notes amoureuses.</p>
-            <p class="lyrics">Se nostra ria fortun' è di piu forza,</p>
-            <p class="translation">Si notre funeste fortune est la plus forte,</p>
-            <p class="lyrics">Lagrimand' e cantando i nostri versi,</p>
-            <p class="translation">Pleurant et chantant nos vers,</p>
-            <p class="lyrics">E col bue zopp' andrem cacciando l'aura.</p>
-            <p class="translation">Avec le bœuf boiteux nous irons chassant le vent.</p>
-        </div>
-    </details>
 
     <details>
         <summary>
@@ -215,7 +220,7 @@
         <summary>
             <span class="summary-title">L'Amaltea, Toccata in Ecco a Doi Soprani</span>
             <span class="summary-meta">
-				Giulio Mussi da Lodi <span class="summary-year">(XVII<sup>e</sup> siècle)</span>
+                Giulio Mussi da Lodi <span class="summary-year">(XVII<sup>e</sup> siècle)</span>
             </span>
         </summary>
     </details>
@@ -618,12 +623,15 @@
         </div>
     </details>
 
+    <div class="choir-photo">
+        <img src="philae.jpg" alt="Les choristes de Philae" loading="lazy" width="1400" height="933">
+    </div>
+
     <h2>Pourquoi nous soutenir ?</h2>
     <p>
         Les choristes de Philae sont amateurs et nos concerts sont entièrement portés par le bénévolat. Vos dons
-        permettent de financer notre chef de chœur et les intervenants professionnels, les lieux de concert, les
-        partitions
-        et le matériel.
+        permettent de financer notre chef de chœur et les instrumentistes professionnels, les lieux de concert, les
+        partitions et le matériel.
     </p>
     <p>
         Votre générosité fait vivre notre musique et rend ces projets possibles. Merci de tout cœur.
@@ -633,6 +641,41 @@
     </p>
 
     <style>
+        /* ── CSS custom properties for both themes ── */
+        :root {
+            --bg: #fdf8f2;
+            --bg-summary: #fdf8f2;
+            --text: #2c2c2c;
+            --text-lyrics: #1a1a1a;
+            --text-trans: #6b5744;
+            --text-meta: #8a6e58;
+            --text-title: #5a3e2b;
+            --text-year: #a07850;
+            --border-div: #d4c9b8;
+            --border-sum: #c8b49a;
+            --border-trans: #d4c9b8;
+            --accent: #a07850;
+            --toggle-bg: #e8ddd0;
+            --toggle-hover: #ddd0be;
+        }
+
+        [data-theme="dark"] {
+            --bg: #18130f;
+            --bg-summary: #18130f;
+            --text: #e0d4c3;
+            --text-lyrics: #f0e8d8;
+            --text-trans: #b09878;
+            --text-meta: #9a8068;
+            --text-title: #d4b896;
+            --text-year: #c49a60;
+            --border-div: #3a2e22;
+            --border-sum: #4a3828;
+            --border-trans: #3a2e22;
+            --accent: #c49a60;
+            --toggle-bg: #2e2318;
+            --toggle-hover: #3a2e20;
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -641,15 +684,40 @@
             font-size: 1.25rem;
             line-height: 1.6;
             font-family: Georgia, serif;
-            background: #fdf8f2;
-            color: #2c2c2c;
+            background: var(--bg);
+            color: var(--text);
             padding: 1rem;
             max-width: 680px;
             margin: 0 auto;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
+        /* ── Theme toggle button ── */
+        .theme-toggle-wrap {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 0.5rem;
+        }
+
+        .theme-toggle {
+            background: var(--toggle-bg);
+            border: 1px solid var(--border-sum);
+            border-radius: 2rem;
+            padding: 0.3rem 0.75rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: var(--text-year);
+            transition: background 0.2s ease, border-color 0.2s ease;
+            line-height: 1;
+        }
+
+        .theme-toggle:hover {
+            background: var(--toggle-hover);
+        }
+
+        /* ── Layout ── */
         details {
-            border-bottom: 1px solid #d4c9b8;
+            border-bottom: 1px solid var(--border-div);
             margin-bottom: 0.5rem;
         }
 
@@ -659,21 +727,31 @@
 
         h1.title {
             margin-bottom: 0;
+            color: var(--text-title);
+        }
+
+        .subtitle {
+            color: var(--text-meta);
+        }
+
+        h2 {
+            color: var(--text-title);
         }
 
         summary {
             position: sticky;
             top: 0;
             z-index: 10;
-            background: #fdf8f2;
+            background: var(--bg-summary);
             padding: 0.6rem 0.5rem;
             cursor: pointer;
-            border-bottom: 2px solid #c8b49a;
+            border-bottom: 2px solid var(--border-sum);
             user-select: none;
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 0.1rem;
+            transition: background 0.3s ease;
         }
 
         summary::-webkit-details-marker {
@@ -682,7 +760,6 @@
 
         summary::before {
             display: none;
-            /* handled below on title */
         }
 
         .summary-title {
@@ -690,13 +767,13 @@
             font-weight: bold;
             font-variant: small-caps;
             letter-spacing: 0.04em;
-            color: #5a3e2b;
+            color: var(--text-title);
         }
 
         .summary-title::before {
             content: '▸ ';
             font-size: 1rem;
-            color: #a07850;
+            color: var(--accent);
             font-variant: normal;
         }
 
@@ -707,12 +784,12 @@
         .summary-meta {
             font-size: 1rem;
             font-style: italic;
-            color: #8a6e58;
+            color: var(--text-meta);
             padding-left: 1.4rem;
         }
 
         .summary-year {
-            color: #a07850;
+            color: var(--text-year);
             font-style: normal;
         }
 
@@ -723,17 +800,58 @@
         p.lyrics {
             margin: 0.6rem 0 0;
             font-size: 1.2rem;
-            color: #1a1a1a;
+            color: var(--text-lyrics);
         }
 
         p.translation {
             margin: 0 0 0.5rem;
             font-size: 1.1rem;
             font-style: italic;
-            color: #6b5744;
+            color: var(--text-trans);
             padding-left: 1rem;
-            border-left: 3px solid #d4c9b8;
+            border-left: 3px solid var(--border-trans);
+        }
+
+        p {
+            color: var(--text);
+        }
+
+        /* ── Choir photo ── */
+        .choir-photo {
+            margin: 2rem 0 1.5rem;
+        }
+
+        .choir-photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
         }
     </style>
+
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        const icon = document.getElementById('toggleIcon');
+        const html = document.documentElement;
+
+        // Honour system preference on first load
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+            html.setAttribute('data-theme', 'dark');
+            icon.textContent = '☀';
+        }
+
+        toggle.addEventListener('click', () => {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                html.removeAttribute('data-theme');
+                icon.textContent = '☽';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                icon.textContent = '☀';
+            }
+        });
+    </script>
 </body>
+
 </html>
